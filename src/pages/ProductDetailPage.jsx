@@ -6,22 +6,7 @@ import toast from 'react-hot-toast'
 import api from '../lib/api'
 import useAuthStore from '../store/authStore'
 
-export default function ProductDetailPage() {
-  useEffect(() => {
-    console.log("🔥 PRODUCT DETAIL MOUNTED")
-
-    const script = document.createElement("script")
-    script.src = "https://app.sandbox.midtrans.com/snap/snap.js"
-    script.setAttribute("data-client-key", "Mid-client-j3lvN1XMc4GyjzhH")
-    script.async = true
-
-    script.onload = () => {
-      console.log("✅ SNAP LOADED MANUALLY")
-    }
-
-    document.body.appendChild(script)
-  }, [])
-
+export default function ProductDetailPage() {s
   const { id } = useParams()
   const navigate = useNavigate()
   const [product, setProduct] = useState(null)
