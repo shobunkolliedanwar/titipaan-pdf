@@ -8,6 +8,8 @@ import useAuthStore from '../store/authStore'
 
 export default function ProductDetailPage() {
   useEffect(() => {
+    console.log("🔥 PRODUCT DETAIL MOUNTED")
+
     const script = document.createElement("script")
     script.src = "https://app.sandbox.midtrans.com/snap/snap.js"
     script.setAttribute("data-client-key", "Mid-client-j3lvN1XMc4GyjzhH")
