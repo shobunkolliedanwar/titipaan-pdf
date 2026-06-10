@@ -30,7 +30,13 @@ export default function RegisterPage() {
 
     try {
       await register(email, password, fullName)
-      toast.success('Registrasi berhasil!')
+      const message =
+        error.response?.data?.success?.message ||
+        error.response?.data?.message ||
+        error.message ||
+        'Registrasi berhasil !'
+      toast.error(message)
+
       navigate('/dashboard')
     } catch (error) {
       const message =
@@ -38,7 +44,6 @@ export default function RegisterPage() {
         error.response?.data?.message ||
         error.message ||
         'Terjadi kesalahan'
-
       toast.error(message)
     } finally {
       setLoading(false)
