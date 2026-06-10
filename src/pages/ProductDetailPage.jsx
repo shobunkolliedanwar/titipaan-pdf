@@ -7,6 +7,19 @@ import api from '../lib/api'
 import useAuthStore from '../store/authStore'
 
 export default function ProductDetailPage() {
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://app.sandbox.midtrans.com/snap/snap.js"
+    script.setAttribute("data-client-key", "Mid-client-j3lvN1XMc4GyjzhH")
+    script.async = true
+
+    script.onload = () => {
+      console.log("✅ SNAP LOADED MANUALLY")
+    }
+
+    document.body.appendChild(script)
+  }, [])
+
   const { id } = useParams()
   const navigate = useNavigate()
   const [product, setProduct] = useState(null)
