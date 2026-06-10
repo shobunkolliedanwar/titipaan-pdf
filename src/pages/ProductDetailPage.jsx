@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 import api from '../lib/api'
 import useAuthStore from '../store/authStore'
 
-export default function ProductDetailPage() {s
+export default function ProductDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [product, setProduct] = useState(null)
