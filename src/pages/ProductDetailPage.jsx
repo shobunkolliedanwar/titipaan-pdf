@@ -79,6 +79,7 @@ export default function ProductDetailPage() {
           toast('Pembayaran dibatalkan')
         }
       })
+      
     } catch (error) {
       toast.error(error.response?.data?.message || 'Gagal membuat transaksi')
     } finally {
