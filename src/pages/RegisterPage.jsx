@@ -30,12 +30,10 @@ export default function RegisterPage() {
 
     try {
       await register(email, password, fullName)
-      const message =
-        error.response?.data?.success?.message ||
-        error.response?.data?.message ||
-        error.message ||
-        'Registrasi berhasil !'
-      toast.error(message)
+      
+      toast.success(
+        'Registrasi berhasil. Silakan cek email untuk verifikasi akun.'
+      )
 
       navigate('/dashboard')
     } catch (error) {
