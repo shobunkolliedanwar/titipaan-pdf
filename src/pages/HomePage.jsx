@@ -111,7 +111,7 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Mengapa Pilih PDFStore?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Mengapa Pilih Titipaan PDF ?</h2>
             <p className="text-xl text-gray-600">Platform terpercaya dengan jutaan pengguna aktif</p>
           </div>
 
@@ -192,8 +192,19 @@ export default function HomePage() {
                 >
                   <Link to={`/products/${product.id}`}>
                     <div className="card group cursor-pointer h-full flex flex-col hover:shadow-xl">
-                      <div className="h-40 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-lg mb-4 flex items-center justify-center text-4xl">
-                        📄
+                      <div className="rounded-xl overflow-hidden shadow-xl bg-white">
+                        <img
+                          src={
+                            product.thumbnail_url ||
+                            'https://placehold.co/600x900/png?text=PDF'
+                          }
+                          alt={product.title}
+                          className="w-full h-96 object-cover"
+                          onError={(e) => {
+                            e.target.src =
+                              'https://placehold.co/600x900/png?text=PDF'
+                          }}
+                        />
                       </div>
                       <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition">
                         {product.title}
@@ -222,7 +233,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Siap Raih Kesuksesan?</h2>
           <p className="text-xl mb-8 text-blue-100">
-            Jangan lewatkan kesempatan untuk meningkatkan persiapan Anda dengan materi-materi terbaik dari PDFStore.
+            Jangan lewatkan kesempatan untuk meningkatkan persiapan Anda dengan materi-materi terbaik dari Titipaan PDF.
           </p>
           <Link
             to="/register"

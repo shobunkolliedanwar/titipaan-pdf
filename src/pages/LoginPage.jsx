@@ -35,7 +35,7 @@ export default function LoginPage() {
             <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
               📚
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">PDFStore</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Titipaan PDF</h1>
             <p className="text-gray-600">Masuk ke akun Anda</p>
           </div>
 

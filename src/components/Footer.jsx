@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 📚
               </div>
-              <span>PDFStore</span>
+              <span>Titipaan PDF</span>
             </div>
             <p className="text-sm">Platform jual beli link PDF berbayar untuk CPNS, BUMN, PPPK dan kategori lainnya.</p>
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>info@pdfstore.id</span>
+                <span>info@titipaanpdf.id</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} />
@@ -61,7 +61,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-center md:text-left">
-              &copy; 2024 PDFStore. Semua hak dilindungi.
+              &copy; 2026 Titipaan PDF. Semua hak dilindungi.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a href="#" className="hover:text-blue-400 transition"><Facebook size={20} /></a>

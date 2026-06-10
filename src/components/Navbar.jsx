@@ -23,7 +23,7 @@ export default function Navbar() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
               📚
             </div>
-            <span>PDFStore</span>
+            <span>Titipaan PDF</span>
           </Link>
 
           {/* Desktop Menu */}
