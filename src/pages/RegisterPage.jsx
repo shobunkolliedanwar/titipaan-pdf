@@ -33,7 +33,7 @@ export default function RegisterPage() {
       toast.success('Registrasi berhasil!')
       navigate('/dashboard')
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Registrasi gagal. Coba lagi.')
+      toast.error(error.response?.data?.message)
     } finally {
       setLoading(false)
     }
