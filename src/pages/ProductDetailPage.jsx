@@ -40,7 +40,7 @@ export default function ProductDetailPage() {
     setPurchasing(true)
 
     try {
-      const { data } = await api.post('/payments/create', {
+      const { data } = await api.post('/api/payments/create', {
         product_id: product.id,
         quantity: 1
       })

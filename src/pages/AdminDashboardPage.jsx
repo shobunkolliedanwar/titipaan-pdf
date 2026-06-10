@@ -13,7 +13,7 @@ export default function AdminDashboardPage() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const { data } = await api.get('/admin/dashboard/stats')
+        const { data } = await api.get('/api/admin/dashboard/stats')
         setStats(data)
       } catch (error) {
         toast.error('Gagal memuat statistik')
