@@ -45,6 +45,9 @@ export default function ProductDetailPage() {
         quantity: 1
       })
 
+      console.log("SNAP TOKEN:", data.snap_token)
+      console.log("SNAP OBJECT:", window.snap)
+
       // In a real app, you would redirect to payment gateway here
       // For now, simulate payment
       toast.success('Membuka halaman pembayaran...')
@@ -79,7 +82,7 @@ export default function ProductDetailPage() {
           toast('Pembayaran dibatalkan')
         }
       })
-      
+
     } catch (error) {
       toast.error(error.response?.data?.message || 'Gagal membuat transaksi')
     } finally {
