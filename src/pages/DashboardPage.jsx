@@ -53,13 +53,13 @@ export default function DashboardPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Dashboard</h1>
             <p className="text-gray-600">Kelola akun dan unduh produk Anda</p>
           </div>
-          <button
+          {/* <button
             onClick={handleLogout}
             className="flex items-center space-x-2 px-6 py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition font-semibold"
           >
             <LogOut size={20} />
             <span>Logout</span>
-          </button>
+          </button> */}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
