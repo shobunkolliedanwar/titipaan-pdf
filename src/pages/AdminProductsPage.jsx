@@ -29,8 +29,8 @@ export default function AdminProductsPage() {
     const fetchData = async () => {
       try {
         const [prodRes, catRes] = await Promise.all([
-          api.get('/api/products'),
-          api.get('/api/categories')
+          api.get('/products'),
+          api.get('/categories')
         ])
         setProducts(prodRes.data)
         setCategories(catRes.data)
@@ -71,10 +71,10 @@ export default function AdminProductsPage() {
 
     try {
       if (editingId) {
-        await api.put(`/api/admin/products/${editingId}`, formData)
+        await api.put(`/admin/products/${editingId}`, formData)
         toast.success('Produk diperbarui')
       } else {
-        const { data } = await api.post('/api/admin/products', formData)
+        const { data } = await api.post('/admin/products', formData)
         setProducts([data, ...products])
         toast.success('Produk ditambahkan')
       }
