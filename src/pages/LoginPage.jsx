@@ -17,10 +17,15 @@ export default function LoginPage() {
 
     try {
       await login(email, password)
-      toast.success('Login berhasil!')
+      toast.success('Login berhasil !')
       navigate('/dashboard')
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login gagal. Coba lagi.')
+      const message =
+        error.response?.data?.error?.message ||
+        error.response?.data?.message ||
+        'Login gagal. Coba lagi.'
+
+      toast.error(message)
     } finally {
       setLoading(false)
     }
