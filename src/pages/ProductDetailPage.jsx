@@ -31,6 +31,7 @@ export default function ProductDetailPage() {
   }, [id])
 
   const handleBuy = async () => {
+    console.log("🔥 HANDLE BUY TRIGGERED")
     if (!token) {
       toast.error('Silakan login terlebih dahulu')
       navigate('/login')
@@ -229,7 +230,10 @@ export default function ProductDetailPage() {
                 </div>
 
                 <button
-                  onClick={handleBuy}
+                  onClick={() => {
+                    console.log("BUTTON CLICKED")
+                    handleBuy()
+                  }}
                   disabled={purchasing}
                   className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
