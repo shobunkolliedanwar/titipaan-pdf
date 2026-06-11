@@ -9,9 +9,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 font-bold text-white mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                📚
-              </div>
+              <img
+                src="/favicon.png"
+                alt="Titipaan PDF"
+                className="w-8 h-8 rounded-lg object-cover"
+              />
               <span>Titipaan PDF</span>
             </div>
             <p className="text-sm">Platform jual beli link PDF berbayar untuk CPNS, BUMN, PPPK dan kategori lainnya.</p>

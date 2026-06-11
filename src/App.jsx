@@ -36,7 +36,7 @@ export default function App() {
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            
+
             <Route
               path="/dashboard"
               element={
@@ -54,7 +54,7 @@ export default function App() {
                 </AdminRoute>
               }
             />
-            
+
             <Route
               path="/admin/products"
               element={
@@ -67,7 +67,26 @@ export default function App() {
         </main>
         <Footer />
       </div>
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            borderRadius: '20px',
+            background: '#111827',
+            color: '#fff',
+            padding: '16px 24px',
+            boxShadow:
+              '0 20px 50px rgba(0,0,0,0.25)',
+          },
+          success: {
+            iconTheme: {
+              primary: '#10B981',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
     </Router>
   )
 }

@@ -38,7 +38,11 @@ export default function LoginPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-              📚
+              <img
+                src="/favicon.png"
+                alt="Titipaan PDF"
+                className="w-8 h-8 rounded-lg object-cover"
+              />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Titipaan PDF</h1>
             <p className="text-gray-600">Masuk ke akun Anda</p>
