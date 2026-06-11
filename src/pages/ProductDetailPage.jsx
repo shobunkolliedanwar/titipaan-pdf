@@ -113,6 +113,10 @@ export default function ProductDetailPage() {
       }, 1500)
 
     } catch (error) {
+      console.log('ERROR:', error)
+      console.log('ERROR RESPONSE:', error.response)
+      console.log('ERROR DATA:', error.response?.data)
+
       toast.error(
         error.response?.data?.message || 'Gagal membuat transaksi'
       )
