@@ -30,8 +30,68 @@ export default function ProductDetailPage() {
     fetchProduct()
   }, [id])
 
+  // const handleBuy = async () => {
+  //   console.log("🔥 HANDLE BUY TRIGGERED")
+  //   if (!token) {
+  //     toast.error('Silakan login terlebih dahulu')
+  //     navigate('/login')
+  //     return
+  //   }
+
+  //   setPurchasing(true)
+
+  //   try {
+  //     const { data } = await api.post('/payments/create', {
+  //       product_id: product.id,
+  //       quantity: 1
+  //     })
+
+  //     console.log("SNAP TOKEN:", data.snap_token)
+  //     console.log("SNAP OBJECT:", window.snap)
+
+  //     // In a real app, you would redirect to payment gateway here
+  //     // For now, simulate payment
+  //     toast.success('Membuka halaman pembayaran...')
+
+  //     // Simulate payment completion
+  //     // setTimeout(async () => {
+  //     //   try {
+  //     //     await api.post('/payments/verify', {
+  //     //       order_id: data.order_id
+  //     //     })
+  //     //     toast.success('Pembayaran berhasil! PDF siap diunduh.')
+  //     //     navigate('/dashboard')
+  //     //   } catch (error) {
+  //     //     toast.error('Gagal memverifikasi pembayaran')
+  //     //   }
+  //     // }, 2000)
+  //     window.snap.pay(data.snap_token, {
+  //       onSuccess: function (result) {
+  //         toast.success('Pembayaran berhasil')
+  //         navigate('/dashboard')
+  //       },
+
+  //       onPending: function (result) {
+  //         toast('Menunggu pembayaran')
+  //       },
+
+  //       onError: function (result) {
+  //         toast.error('Pembayaran gagal')
+  //       },
+
+  //       onClose: function () {
+  //         toast('Pembayaran dibatalkan')
+  //       }
+  //     })
+
+  //   } catch (error) {
+  //     toast.error(error.response?.data?.message || 'Gagal membuat transaksi')
+  //   } finally {
+  //     setPurchasing(false)
+  //   }
+  // }
+
   const handleBuy = async () => {
-    console.log("🔥 HANDLE BUY TRIGGERED")
     if (!token) {
       toast.error('Silakan login terlebih dahulu')
       navigate('/login')
@@ -41,51 +101,21 @@ export default function ProductDetailPage() {
     setPurchasing(true)
 
     try {
-      const { data } = await api.post('/payments/create', {
+      await api.post('/payments/create', {
         product_id: product.id,
         quantity: 1
       })
 
-      console.log("SNAP TOKEN:", data.snap_token)
-      console.log("SNAP OBJECT:", window.snap)
+      toast.success('Pembelian berhasil!')
 
-      // In a real app, you would redirect to payment gateway here
-      // For now, simulate payment
-      toast.success('Membuka halaman pembayaran...')
-
-      // Simulate payment completion
-      // setTimeout(async () => {
-      //   try {
-      //     await api.post('/payments/verify', {
-      //       order_id: data.order_id
-      //     })
-      //     toast.success('Pembayaran berhasil! PDF siap diunduh.')
-      //     navigate('/dashboard')
-      //   } catch (error) {
-      //     toast.error('Gagal memverifikasi pembayaran')
-      //   }
-      // }, 2000)
-      window.snap.pay(data.snap_token, {
-        onSuccess: function (result) {
-          toast.success('Pembayaran berhasil')
-          navigate('/dashboard')
-        },
-
-        onPending: function (result) {
-          toast('Menunggu pembayaran')
-        },
-
-        onError: function (result) {
-          toast.error('Pembayaran gagal')
-        },
-
-        onClose: function () {
-          toast('Pembayaran dibatalkan')
-        }
-      })
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 1500)
 
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Gagal membuat transaksi')
+      toast.error(
+        error.response?.data?.message || 'Gagal membuat transaksi'
+      )
     } finally {
       setPurchasing(false)
     }
