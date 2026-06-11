@@ -274,25 +274,6 @@ export default function DashboardPage() {
                           </button>
                         </div>
                       </div>
-
-                      <div className="flex items-center space-x-4">
-                        <div className="text-right">
-                          <p className="text-lg font-bold text-blue-600">
-                            Rp{purchase.product?.price?.toLocaleString('id-ID')}
-                          </p>
-                          <p className="text-xs text-gray-500">✓ Dibayar</p>
-                        </div>
-                        <button
-                          onClick={() => {
-                            // In production, this would open the PDF or redirect to download
-                            toast.success('Membuka file...')
-                          }}
-                          className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-                        >
-                          <Download size={18} />
-                          <span>Unduh</span>
-                        </button>
-                      </div>
                     </motion.div>
                   ))}
                 </div>
