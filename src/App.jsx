@@ -13,6 +13,9 @@ import ProductDetailPage from './pages/ProductDetailPage'
 import DashboardPage from './pages/DashboardPage'
 import AdminDashboardPage from './pages/AdminDashboardPage'
 import AdminProductsPage from './pages/AdminProductsPage'
+import FaqPage from './pages/FaqPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsAndConditionsPage from './pages/TermsAndConditionsPage'
 
 function ProtectedRoute({ children }) {
   const { token } = useAuthStore()
@@ -62,6 +65,18 @@ export default function App() {
                   <AdminProductsPage />
                 </AdminRoute>
               }
+            />
+
+            <Route path="/faq" element={<FaqPage />} />
+
+            <Route
+              path="/privacy-policy"
+              element={<PrivacyPolicyPage />}
+            />
+
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditionsPage />}
             />
           </Routes>
         </main>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Users, Package, TrendingUp, DollarSign, Loader, ArrowRight } from 'lucide-react'
+import { Users, Package, TrendingUp, DollarSign, Loader, ArrowRight, Wallet, BadgeCheck, TrendingDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 import toast from 'react-hot-toast'
@@ -44,87 +44,218 @@ export default function AdminDashboardPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
-          <p className="text-gray-600">Kelola produk, pengguna, dan transaksi</p>
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            Admin Dashboard
+          </h1>
+
+          <p className="text-gray-600">
+            Kelola produk, pengguna, dan transaksi
+          </p>
+        </div>
+
+        {/* Premium Hero */}
+        <div
+          className="
+    mb-10
+    rounded-[32px]
+    overflow-hidden
+    bg-gradient-to-r
+    from-slate-900
+    via-blue-900
+    to-indigo-900
+    p-10
+    text-white
+    shadow-2xl
+  "
+        >
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+            <div>
+              <p className="text-blue-200 mb-2">
+                Dashboard Admin
+              </p>
+
+              <h2 className="text-5xl font-black mb-4">
+                Selamat Datang 👋
+              </h2>
+
+              <p className="text-slate-300 text-lg max-w-2xl">
+                Pantau penjualan, pengguna, transaksi,
+                dan performa bisnis Titipaan PDF secara real-time.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 min-w-[280px]">
+              <div className="text-slate-300 text-sm">
+                Total Pendapatan
+              </div>
+
+              <div className="text-4xl font-black mt-2">
+                Rp{(stats?.totalRevenue || 0).toLocaleString('id-ID')}
+              </div>
+
+              <div className="mt-4 flex items-center gap-2 text-green-300">
+                <TrendingUp size={18} />
+                <span>Bisnis berjalan dengan baik</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
           {/* Total Users */}
+          {/* Users */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl shadow-md p-6"
+            whileHover={{ y: -5 }}
+            className="
+      relative overflow-hidden
+      rounded-3xl
+      bg-gradient-to-br
+      from-blue-600
+      to-indigo-700
+      text-white
+      p-6
+      shadow-2xl
+    "
           >
-            <div className="flex items-center justify-between">
+            <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full" />
+
+            <div className="flex justify-between items-start">
               <div>
-                <p className="text-gray-600 text-sm font-semibold mb-2">Total Pengguna</p>
-                <p className="text-4xl font-bold text-gray-900">{stats?.totalUsers || 0}</p>
+                <p className="text-blue-100 text-sm font-medium">
+                  Total Pengguna
+                </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  {stats?.totalUsers || 0}
+                </h2>
+
+                <div className="mt-4 flex items-center gap-2 text-sm">
+                  <TrendingUp size={16} />
+                  <span>+12% bulan ini</span>
+                </div>
               </div>
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-2xl">
-                👥
+
+              <div className="bg-white/20 p-4 rounded-2xl">
+                <Users size={32} />
               </div>
             </div>
           </motion.div>
 
           {/* Total Products */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-white rounded-xl shadow-md p-6"
+            whileHover={{ y: -5 }}
+            className="
+      relative overflow-hidden
+      rounded-3xl
+      bg-gradient-to-br
+      from-emerald-500
+      to-green-700
+      text-white
+      p-6
+      shadow-2xl
+    "
           >
-            <div className="flex items-center justify-between">
+            <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full" />
+
+            <div className="flex justify-between items-start">
               <div>
-                <p className="text-gray-600 text-sm font-semibold mb-2">Total Produk</p>
-                <p className="text-4xl font-bold text-gray-900">{stats?.totalProducts || 0}</p>
+                <p className="text-green-100 text-sm font-medium">
+                  Total Produk
+                </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  {stats?.totalProducts || 0}
+                </h2>
+
+                <div className="mt-4 flex items-center gap-2 text-sm">
+                  <TrendingUp size={16} />
+                  <span>Katalog aktif</span>
+                </div>
               </div>
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-2xl">
-                📦
+
+              <div className="bg-white/20 p-4 rounded-2xl">
+                <Package size={32} />
               </div>
             </div>
           </motion.div>
 
           {/* Total Revenue */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-white rounded-xl shadow-md p-6"
+            whileHover={{ y: -5 }}
+            className="
+      relative overflow-hidden
+      rounded-3xl
+      bg-gradient-to-br
+      from-amber-500
+      to-orange-600
+      text-white
+      p-6
+      shadow-2xl
+    "
           >
-            <div className="flex items-center justify-between">
+            <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full" />
+
+            <div className="flex justify-between items-start">
               <div>
-                <p className="text-gray-600 text-sm font-semibold mb-2">Total Pendapatan</p>
-                <p className="text-3xl font-bold text-gray-900">
-                  Rp{(stats?.totalRevenue || 0).toLocaleString('id-ID')}
+                <p className="text-yellow-100 text-sm font-medium">
+                  Total Pendapatan
                 </p>
+
+                <h2 className="text-3xl font-black mt-3">
+                  Rp{(stats?.totalRevenue || 0).toLocaleString('id-ID')}
+                </h2>
+
+                <div className="mt-4 flex items-center gap-2 text-sm">
+                  <TrendingUp size={16} />
+                  <span>+18% dibanding bulan lalu</span>
+                </div>
               </div>
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">
-                💰
+
+              <div className="bg-white/20 p-4 rounded-2xl">
+                <Wallet size={32} />
               </div>
             </div>
           </motion.div>
 
           {/* Total Transactions */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="bg-white rounded-xl shadow-md p-6"
+            whileHover={{ y: -5 }}
+            className="
+      relative overflow-hidden
+      rounded-3xl
+      bg-gradient-to-br
+      from-violet-600
+      to-purple-700
+      text-white
+      p-6
+      shadow-2xl
+    "
           >
-            <div className="flex items-center justify-between">
+            <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full" />
+
+            <div className="flex justify-between items-start">
               <div>
-                <p className="text-gray-600 text-sm font-semibold mb-2">Transaksi Sukses</p>
-                <p className="text-4xl font-bold text-gray-900">
-                  {stats?.recentTransactions?.length || 0}
+                <p className="text-purple-100 text-sm font-medium">
+                  Transaksi Sukses
                 </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  {stats?.recentTransactions?.length || 0}
+                </h2>
+
+                <div className="mt-4 flex items-center gap-2 text-sm">
+                  <BadgeCheck size={16} />
+                  <span>100% berhasil</span>
+                </div>
               </div>
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-2xl">
-                ✓
+
+              <div className="bg-white/20 p-4 rounded-2xl">
+                <BadgeCheck size={32} />
               </div>
             </div>
           </motion.div>
@@ -216,7 +347,7 @@ export default function AdminDashboardPage() {
           className="bg-white rounded-xl shadow-lg p-8"
         >
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Transaksi Terbaru</h2>
-          
+
           {stats?.recentTransactions?.length === 0 ? (
             <div className="text-center py-8">
               <p className="text-gray-600">Belum ada transaksi</p>

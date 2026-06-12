@@ -33,9 +33,32 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Dukungan</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-blue-400 transition">FAQ</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Kebijakan Privasi</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Syarat & Ketentuan</a></li>
+              <li>
+                <Link
+                  to="/faq"
+                  className="hover:text-blue-400 transition"
+                >
+                  FAQ
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  className="hover:text-blue-400 transition"
+                >
+                  Kebijakan Privasi
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/terms-and-conditions"
+                  className="hover:text-blue-400 transition"
+                >
+                  Syarat & Ketentuan
+                </Link>
+              </li>
             </ul>
           </div>
 
