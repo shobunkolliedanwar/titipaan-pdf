@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, BookOpen, Users, Zap, TrendingUp, Star } from 'lucide-react'
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  Zap,
+  TrendingUp,
+  Star,
+  ShieldCheck,
+  FileText,
+  Download
+} from 'lucide-react'
 import { motion } from 'framer-motion'
 import api from '../lib/api'
 
@@ -93,12 +103,59 @@ export default function HomePage() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-3xl blur-2xl"></div>
               <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
-                <div className="space-y-4">
-                  <div className="h-12 bg-white/20 rounded-lg"></div>
-                  <div className="h-40 bg-white/20 rounded-lg"></div>
-                  <div className="flex space-x-3">
-                    <div className="flex-1 h-10 bg-white/20 rounded-lg"></div>
-                    <div className="flex-1 h-10 bg-white/20 rounded-lg"></div>
+                <div className="space-y-5">
+                  <div className="group bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-xl bg-white/20">
+                        <BookOpen className="w-6 h-6 text-white" />
+                      </div>
+
+                      <div>
+                        <h3 className="font-bold text-white text-lg">
+                          Materi Premium
+                        </h3>
+
+                        <p className="text-white/80 mt-1 leading-relaxed">
+                          Ribuan PDF CPNS, PPPK, BUMN, dan Sekolah Kedinasan yang siap digunakan.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="group bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-xl bg-white/20">
+                        <Zap className="w-6 h-6 text-yellow-300" />
+                      </div>
+
+                      <div>
+                        <h3 className="font-bold text-white text-lg">
+                          Download Instan
+                        </h3>
+
+                        <p className="text-white/80 mt-1 leading-relaxed">
+                          Link PDF otomatis tersedia setelah pembayaran berhasil.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="group bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-xl bg-white/20">
+                        <ShieldCheck className="w-6 h-6 text-green-300" />
+                      </div>
+
+                      <div>
+                        <h3 className="font-bold text-white text-lg">
+                          Pembayaran Aman
+                        </h3>
+
+                        <p className="text-white/80 mt-1 leading-relaxed">
+                          Transaksi terlindungi dan diproses secara otomatis.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
