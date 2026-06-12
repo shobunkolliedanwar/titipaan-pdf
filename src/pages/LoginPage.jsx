@@ -71,7 +71,7 @@ export default function LoginPage() {
             {/* Password */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Password
+                Kata Sandi
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 text-gray-400" size={20} />

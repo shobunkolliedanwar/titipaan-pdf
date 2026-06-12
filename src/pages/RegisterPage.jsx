@@ -17,12 +17,12 @@ export default function RegisterPage() {
     e.preventDefault()
 
     if (password !== confirmPassword) {
-      toast.error('Password tidak cocok!')
+      toast.error('Kata Sandi tidak cocok!')
       return
     }
 
     if (password.length < 8) {
-      toast.error('Password minimal 8 karakter!')
+      toast.error('Kata Sandi minimal 8 karakter!')
       return
     }
 
@@ -106,7 +106,7 @@ export default function RegisterPage() {
             {/* Password */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Password
+                Kata Sandi
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
@@ -124,7 +124,7 @@ export default function RegisterPage() {
             {/* Confirm Password */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Konfirmasi Password
+                Konfirmasi Kata Sandi
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
