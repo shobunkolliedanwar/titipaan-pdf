@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, X, LogOut, LayoutDashboard, ShoppingCart } from 'lucide-react'
 import useAuthStore from '../store/authStore'
+import { toast } from 'react-hot-toast'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,6 +10,8 @@ export default function Navbar() {
   const { user, token, logout } = useAuthStore()
 
   const handleLogout = () => {
+    toast.success('Logout berhasil')
+
     logout()
     navigate('/')
     setIsOpen(false)

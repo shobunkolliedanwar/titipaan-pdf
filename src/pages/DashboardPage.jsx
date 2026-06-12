@@ -115,13 +115,6 @@ export default function DashboardPage() {
                 >
                   + Belanja Lagi
                 </Link>
-
-                <button
-                  onClick={handleLogout}
-                  className="w-full py-3 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition"
-                >
-                  Logout
-                </button>
               </div>
             </div>
           </motion.div>
@@ -254,20 +247,23 @@ export default function DashboardPage() {
 
                           <button
                             onClick={() => {
-                              toast.success('Membuka file...')
+                              window.open(
+                                purchase.product?.file_url,
+                                '_blank'
+                              )
                             }}
                             className="
-      px-4
-      py-2
-      rounded-xl
-      bg-blue-600
-      text-white
-      hover:bg-blue-700
-      transition
-      flex
-      items-center
-      gap-2
-      "
+    px-4
+    py-2
+    rounded-xl
+    bg-blue-600
+    text-white
+    hover:bg-blue-700
+    transition
+    flex
+    items-center
+    gap-2
+  "
                           >
                             <Download size={16} />
                             Unduh
